@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://p6fsf206sx4"]
+
+[ext_resource type="Script" path="res://PlayerTwoLossArea.gd" id="1_x3od1"]
+[ext_resource type="Script" path="res://PlayerOneLossArea.gd" id="2_gad8j"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_285fp"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_56muw"]
+normal = Vector2(0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tpxf8"]
+size = Vector2(64, 648)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ggmn"]
+size = Vector2(64, 648)
+
+[node name="GameBoard" type="Node2D"]
+
+[node name="WorldBoundary" type="StaticBody2D" parent="."]
+
+[node name="TopWall" type="CollisionShape2D" parent="WorldBoundary"]
+position = Vector2(576, 0)
+shape = SubResource("WorldBoundaryShape2D_285fp")
+
+[node name="BottomWall" type="CollisionShape2D" parent="WorldBoundary"]
+position = Vector2(576, 648)
+shape = SubResource("WorldBoundaryShape2D_56muw")
+
+[node name="PlayerTwoLossArea" type="Area2D" parent="."]
+script = ExtResource("1_x3od1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerTwoLossArea"]
+position = Vector2(-32, 324)
+shape = SubResource("RectangleShape2D_tpxf8")
+
+[node name="PlayerOneLossArea" type="Area2D" parent="."]
+script = ExtResource("2_gad8j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerOneLossArea"]
+position = Vector2(1184, 324)
+shape = SubResource("RectangleShape2D_6ggmn")
+
+[connection signal="area_entered" from="PlayerTwoLossArea" to="PlayerTwoLossArea" method="_on_area_entered"]
+[connection signal="area_entered" from="PlayerOneLossArea" to="PlayerOneLossArea" method="_on_area_entered"]
