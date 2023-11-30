@@ -1,12 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://p6fsf206sx4"]
+[gd_scene load_steps=8 format=3 uid="uid://blarr6887vcjd"]
 
 [ext_resource type="Script" path="res://PlayerTwoLossArea.gd" id="1_x3od1"]
 [ext_resource type="Script" path="res://PlayerOneLossArea.gd" id="2_gad8j"]
+[ext_resource type="PackedScene" uid="uid://7wthsi2yhkgm" path="res://player_paddle.tscn" id="3_47atp"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_285fp"]
+normal = Vector2(0, 1)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_56muw"]
-normal = Vector2(0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tpxf8"]
 size = Vector2(64, 648)
@@ -39,6 +40,9 @@ script = ExtResource("2_gad8j")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerOneLossArea"]
 position = Vector2(1184, 324)
 shape = SubResource("RectangleShape2D_6ggmn")
+
+[node name="player_paddle" parent="." instance=ExtResource("3_47atp")]
+position = Vector2(0, -8)
 
 [connection signal="area_entered" from="PlayerTwoLossArea" to="PlayerTwoLossArea" method="_on_area_entered"]
 [connection signal="area_entered" from="PlayerOneLossArea" to="PlayerOneLossArea" method="_on_area_entered"]

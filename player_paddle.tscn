@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://7wthsi2yhkgm"]
+
+[ext_resource type="Script" path="res://player_paddle.gd" id="1_decd3"]
+[ext_resource type="Texture2D" uid="uid://b5hb2qdh8nb3l" path="res://SpaceShooterAssets/SpaceShooterAssetPack_IU.png" id="2_svwu5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p8e16"]
+size = Vector2(16, 83)
+
+[node name="player_paddle" type="CharacterBody2D"]
+script = ExtResource("1_decd3")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(8, 321.5)
+shape = SubResource("RectangleShape2D_p8e16")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(8, 321.5)
+scale = Vector2(4, 3.45833)
+texture = ExtResource("2_svwu5")
+region_enabled = true
+region_rect = Rect2(59, 8, 4, 24)
+region_filter_clip_enabled = true
+
+[node name="ball_detection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ball_detection"]
+position = Vector2(8, 321.5)
+shape = SubResource("RectangleShape2D_p8e16")
