@@ -19,13 +19,13 @@ func _physics_process(delta):
 	# shake from top to bottom when the vector's y is close to 0
 	ai_to_ball.y = snappedf(ai_to_ball.y, 0.01)
 
-	
+
 	if ai_to_ball.y > 0:
 		ai_to_ball.y = 1
 	elif ai_to_ball.y < 0:
 		ai_to_ball.y = -1
 		
-	velocity.y = ai_to_ball.y * SPEED
+	velocity.y = ai_to_ball.y * SPEED 
 
 	move_and_slide()
 	
