@@ -10,12 +10,12 @@ size = Vector2(16, 83)
 script = ExtResource("1_decd3")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1.49997)
+position = Vector2(0, 1.49996)
 shape = SubResource("RectangleShape2D_p8e16")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(0, 1.49997)
+position = Vector2(0, 1.49996)
 scale = Vector2(4, 3.45833)
 texture = ExtResource("2_svwu5")
 region_enabled = true
@@ -23,6 +23,7 @@ region_rect = Rect2(59, 8, 4, 24)
 region_filter_clip_enabled = true
 
 [node name="ball_detection" type="Area2D" parent="."]
+position = Vector2(0, -1.14441e-05)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="ball_detection"]
 position = Vector2(0, 1.49997)

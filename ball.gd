@@ -1,7 +1,7 @@
 extends RigidBody2D
 
 
-var velocity = Vector2(10,300)
+var velocity = Vector2(300,300)
 var rand_direction = randi_range(0,1)
 
 

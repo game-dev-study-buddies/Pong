@@ -7,7 +7,6 @@
 size = Vector2(16, 83)
 
 [node name="ComputerPaddle" type="CharacterBody2D"]
-position = Vector2(1136, 8)
 script = ExtResource("1_slof5")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
