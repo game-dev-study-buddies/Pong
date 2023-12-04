@@ -29,6 +29,50 @@ shape = SubResource("WorldBoundaryShape2D_285fp")
 position = Vector2(576, 648)
 shape = SubResource("WorldBoundaryShape2D_56muw")
 
+[node name="Net" type="RichTextLabel" parent="."]
+texture_filter = 1
+offset_left = 556.0
+offset_right = 596.0
+offset_bottom = 648.0
+theme_override_colors/default_color = Color(0.372549, 0.592157, 0.988235, 1)
+theme_override_colors/font_shadow_color = Color(0.176471, 0.215686, 0.678431, 1)
+theme_override_colors/font_outline_color = Color(0.505882, 0.835294, 0.988235, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 2
+theme_override_constants/outline_size = 2
+bbcode_enabled = true
+text = "[center][b]|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+[/b][/center]"
+scroll_active = false
+
 [node name="PlayerTwoLossArea" type="Area2D" parent="."]
 script = ExtResource("1_x3od1")
 
@@ -51,6 +95,8 @@ position = Vector2(1144, 320)
 
 [node name="Ball" parent="." instance=ExtResource("4_a5ht6")]
 position = Vector2(576, 320)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [connection signal="area_entered" from="PlayerTwoLossArea" to="PlayerTwoLossArea" method="_on_area_entered"]
 [connection signal="area_entered" from="PlayerOneLossArea" to="PlayerOneLossArea" method="_on_area_entered"]
