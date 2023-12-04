@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://blarr6887vcjd"]
+[gd_scene load_steps=10 format=3 uid="uid://blarr6887vcjd"]
 
 [ext_resource type="Script" path="res://PlayerTwoLossArea.gd" id="1_x3od1"]
 [ext_resource type="Script" path="res://PlayerOneLossArea.gd" id="2_gad8j"]
 [ext_resource type="PackedScene" uid="uid://7wthsi2yhkgm" path="res://player_paddle.tscn" id="3_47atp"]
-[ext_resource type="PackedScene" uid="uid://b8nxvu1slht5y" path="res://ball.tscn" id="4_a5ht6"]
+[ext_resource type="PackedScene" uid="uid://d1ry7nm0osmli" path="res://ball.tscn" id="4_a5ht6"]
+[ext_resource type="PackedScene" uid="uid://b7fr4wbs862ka" path="res://computer_paddle.tscn" id="4_uvkk3"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_285fp"]
 normal = Vector2(0, 1)
@@ -43,7 +44,10 @@ position = Vector2(1184, 324)
 shape = SubResource("RectangleShape2D_6ggmn")
 
 [node name="player_paddle" parent="." instance=ExtResource("3_47atp")]
-position = Vector2(0, -8)
+position = Vector2(8, 320)
+
+[node name="ComputerPaddle" parent="." instance=ExtResource("4_uvkk3")]
+position = Vector2(1144, 320)
 
 [node name="Ball" parent="." instance=ExtResource("4_a5ht6")]
 position = Vector2(576, 320)
