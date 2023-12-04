@@ -161,3 +161,4 @@ script = SubResource("GDScript_f45vb")
 metadata/_edit_lock_ = true
 
 [connection signal="body_entered" from="ComputerBallDetection" to="ComputerPaddle" method="_on_computer_ball_detection_body_entered"]
+
