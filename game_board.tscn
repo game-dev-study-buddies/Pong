@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://blarr6887vcjd"]
+[gd_scene load_steps=13 format=3 uid="uid://blarr6887vcjd"]
 
 [ext_resource type="Script" path="res://PlayerTwoLossArea.gd" id="1_x3od1"]
 [ext_resource type="Script" path="res://PlayerOneLossArea.gd" id="2_gad8j"]
 [ext_resource type="PackedScene" uid="uid://7wthsi2yhkgm" path="res://player_paddle.tscn" id="3_47atp"]
 [ext_resource type="PackedScene" uid="uid://d1ry7nm0osmli" path="res://ball.tscn" id="4_a5ht6"]
 [ext_resource type="PackedScene" uid="uid://b7fr4wbs862ka" path="res://computer_paddle.tscn" id="4_uvkk3"]
+[ext_resource type="FontFile" uid="uid://dbxoov6yhmxym" path="res://80s-retro-future.ttf" id="6_8kwgy"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_285fp"]
 normal = Vector2(0, 1)
@@ -16,6 +17,34 @@ size = Vector2(64, 648)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ggmn"]
 size = Vector2(64, 648)
+
+[sub_resource type="GDScript" id="GDScript_wi3mb"]
+script/source = "extends Label
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	text = str(PlayerVariables.player_one_score)
+"
+
+[sub_resource type="GDScript" id="GDScript_f45vb"]
+script/source = "extends Label
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+		text = str(PlayerVariables.player_two_score)
+"
 
 [node name="GameBoard" type="Node2D"]
 
@@ -73,17 +102,17 @@ text = "[center][b]|
 [/b][/center]"
 scroll_active = false
 
-[node name="PlayerTwoLossArea" type="Area2D" parent="."]
-script = ExtResource("1_x3od1")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerTwoLossArea"]
-position = Vector2(-32, 324)
-shape = SubResource("RectangleShape2D_tpxf8")
-
 [node name="PlayerOneLossArea" type="Area2D" parent="."]
 script = ExtResource("2_gad8j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerOneLossArea"]
+position = Vector2(-32, 324)
+shape = SubResource("RectangleShape2D_tpxf8")
+
+[node name="PlayerTwoLossArea" type="Area2D" parent="."]
+script = ExtResource("1_x3od1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerTwoLossArea"]
 position = Vector2(1184, 324)
 shape = SubResource("RectangleShape2D_6ggmn")
 
@@ -96,7 +125,26 @@ position = Vector2(1144, 320)
 [node name="Ball" parent="." instance=ExtResource("4_a5ht6")]
 position = Vector2(576, 320)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="."]
 
-[connection signal="area_entered" from="PlayerTwoLossArea" to="PlayerTwoLossArea" method="_on_area_entered"]
-[connection signal="area_entered" from="PlayerOneLossArea" to="PlayerOneLossArea" method="_on_area_entered"]
+[node name="PlayerOneScore" type="Label" parent="UI"]
+offset_right = 525.0
+offset_bottom = 80.0
+theme_override_fonts/font = ExtResource("6_8kwgy")
+theme_override_font_sizes/font_size = 64
+horizontal_alignment = 1
+vertical_alignment = 1
+script = SubResource("GDScript_wi3mb")
+
+[node name="PlayerTwoScore" type="Label" parent="UI"]
+offset_left = 627.0
+offset_right = 1152.0
+offset_bottom = 80.0
+theme_override_fonts/font = ExtResource("6_8kwgy")
+theme_override_font_sizes/font_size = 64
+horizontal_alignment = 1
+vertical_alignment = 1
+script = SubResource("GDScript_f45vb")
+
+[connection signal="body_entered" from="PlayerOneLossArea" to="PlayerOneLossArea" method="_on_body_entered"]
+[connection signal="body_entered" from="PlayerTwoLossArea" to="PlayerTwoLossArea" method="_on_body_entered"]
