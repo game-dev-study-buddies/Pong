@@ -8,6 +8,7 @@ var rand_direction = randi_range(0,1)
 
 
 func _physics_process(delta):
+	
 	var collision_info
 #	if rand_direction == 0:
 #		collision_info = move_and_collide(-velocity * delta)
@@ -15,4 +16,5 @@ func _physics_process(delta):
 	collision_info = move_and_collide(velocity * delta)
 	
 	if collision_info:
+		print(collision_info.get_collider().name)
 		velocity = velocity.bounce(collision_info.get_normal())
