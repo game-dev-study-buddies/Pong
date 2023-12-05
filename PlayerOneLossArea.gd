@@ -13,10 +13,13 @@ func _process(delta):
 
 func _on_body_entered(body):
 	if body.name == "Ball":
-#		print(body.name, " inside playerOneLossArea")
+		print(body.name, " inside playerOneLossArea")
 	# increment the other player's score
 		PlayerVariables.player_two_score += 1
 	# check if the game is over
 	# despawn ball
-	# spawn ball towards the other player
-#	print(body.name, " inside playerOneLossArea")
+	# check spawn direction
+	# face ball spawn towards the other player
+	# spawn ball
+	else:
+		print(body.name, " inside playerOneLossArea")
