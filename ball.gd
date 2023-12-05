@@ -1,7 +1,9 @@
 extends RigidBody2D
 
+var ball_direction = Vector2.ONE
+var ball_speed = 300
 
-var velocity = Vector2(randi_range(randi_range(-300,-350),randi_range(350,300)),randi_range(randi_range(-300,-350),randi_range(350,300)))
+var velocity = ball_direction * ball_speed
 var rand_direction = randi_range(0,1)
 
 
