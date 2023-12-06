@@ -6,7 +6,7 @@ var ball_speed = 300
 
 
 var velocity
-var rand_direction = randi_range(0,1)
+
 
 func _ready():
 	spawn_ball()
@@ -18,6 +18,14 @@ func _physics_process(delta):
 	if collision_info:
 		print(collision_info.get_collider().name)
 		velocity = velocity.bounce(collision_info.get_normal())
+		
+		if collision_info.get_collider().name == "PlayerOneWall":
+			PlayerVariables.player_two_score += 1
+			queue_free()
+		elif collision_info.get_collider().name == "PlayerTwoWall":
+			PlayerVariables.player_one_score += 1
+			print(PlayerVariables.player_one_score)
+			queue_free()
 
 
 func spawn_ball():
