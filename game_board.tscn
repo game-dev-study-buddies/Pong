@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://blarr6887vcjd"]
+[gd_scene load_steps=12 format=3 uid="uid://blarr6887vcjd"]
 
 [ext_resource type="PackedScene" uid="uid://7wthsi2yhkgm" path="res://player_paddle.tscn" id="3_47atp"]
 [ext_resource type="PackedScene" uid="uid://d1ry7nm0osmli" path="res://ball.tscn" id="4_a5ht6"]
@@ -15,6 +15,9 @@ normal = Vector2(1, 0)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xv70u"]
 normal = Vector2(-1, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aexhw"]
+size = Vector2(727.5, 658)
 
 [sub_resource type="GDScript" id="GDScript_wi3mb"]
 script/source = "extends Label
@@ -123,6 +126,14 @@ position = Vector2(8, 320)
 [node name="ComputerPaddle" parent="." instance=ExtResource("4_uvkk3")]
 position = Vector2(1144, 320)
 
+[node name="ComputerBallDetection" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ComputerBallDetection"]
+position = Vector2(797, 325)
+shape = SubResource("RectangleShape2D_aexhw")
+metadata/_edit_lock_ = true
+
 [node name="Ball" parent="." instance=ExtResource("4_a5ht6")]
 position = Vector2(576, 320)
 
@@ -148,3 +159,5 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = SubResource("GDScript_f45vb")
 metadata/_edit_lock_ = true
+
+[connection signal="body_entered" from="ComputerBallDetection" to="ComputerPaddle" method="_on_computer_ball_detection_body_entered"]
