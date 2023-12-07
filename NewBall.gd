@@ -7,9 +7,9 @@ var new_ball
 
 func _on_ball_tree_exited():
 	new_ball = Ball.instantiate()
-	new_ball.position = Vector2(575, 320)
+	var board_center = Vector2(576, 320)
+	new_ball.position = board_center
 	add_child(new_ball)
-	print(new_ball.position)
 	reset_ball()
 
 
