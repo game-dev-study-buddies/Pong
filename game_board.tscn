@@ -1,5 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://blarr6887vcjd"]
-[gd_scene load_steps=13 format=3 uid="uid://blarr6887vcjd"]
+[gd_scene load_steps=14 format=3 uid="uid://blarr6887vcjd"]
 
 [ext_resource type="PackedScene" uid="uid://7wthsi2yhkgm" path="res://player_paddle.tscn" id="3_47atp"]
 [ext_resource type="Script" path="res://NewBall.gd" id="4_8bvax"]
