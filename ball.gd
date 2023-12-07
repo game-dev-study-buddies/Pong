@@ -4,6 +4,7 @@ const left = -1
 const right = 1
 
 var ball_speed = 300
+
 static var ball_direction_h
 
 var speed_multiplier = 1.15
