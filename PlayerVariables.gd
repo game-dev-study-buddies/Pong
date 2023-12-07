@@ -14,10 +14,12 @@ var player_two_score: int:
 	set(value):
 		score_two = value
 
-
 var current_text = ""
 var game_end_text: String:
 	get:
 		return current_text
 	set(value):
 		current_text = value
+
+var current_winner
+var last_winner
