@@ -16,7 +16,6 @@ func _physics_process(delta):
 	var collision_info = move_and_collide(velocity * delta)
 	
 	if collision_info:
-		print(collision_info.get_collider().name)
 		velocity = velocity.bounce(collision_info.get_normal())
 		
 		if collision_info.get_collider().name == "PlayerOneWall":
@@ -24,7 +23,6 @@ func _physics_process(delta):
 			queue_free()
 		elif collision_info.get_collider().name == "PlayerTwoWall":
 			PlayerVariables.player_one_score += 1
-			print(PlayerVariables.player_one_score)
 			queue_free()
 
 
@@ -35,4 +33,4 @@ func spawn_ball():
 		ball_direction_h = -1
 	ball_direction = Vector2(ball_direction_h, randf_range(-1,1)).normalized()
 	velocity = ball_direction * ball_speed
-	print(ball_direction, velocity)
+
