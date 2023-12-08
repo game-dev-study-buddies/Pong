@@ -8,6 +8,8 @@ const SPEED_MULTIPLIER = 1.15
 var velocity
 static var ball_direction_h
 
+@onready var audio_player = $AudioStreamPlayer
+
 func _ready():
 	spawn_ball()
 
@@ -17,6 +19,7 @@ func _physics_process(delta):
 	
 	if collision_info:
 		velocity = velocity.bounce(collision_info.get_normal())
+		audio_player.play()
 
 		var collider = collision_info.get_collider().name
 
