@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="Pong"
-run/main_scene="res://menu.tscn"
+run/main_scene="res://main_menu/menu.tscn"
 config/features=PackedStringArray("4.1", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
 
-PlayerVariables="*res://PlayerVariables.gd"
+PlayerVariables="*res://player_variables.gd"
 
 [input]
 
