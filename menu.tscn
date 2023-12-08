@@ -1,0 +1,145 @@
+[gd_scene load_steps=6 format=3 uid="uid://5ggd5811sx3k"]
+
+[ext_resource type="Script" path="res://menu.gd" id="1_8wj62"]
+[ext_resource type="Texture2D" uid="uid://b5hb2qdh8nb3l" path="res://SpaceShooterAssets/SpaceShooterAssetPack_IU.png" id="1_nr7v3"]
+[ext_resource type="Texture2D" uid="uid://calmvvg3rsn" path="res://SpaceShooterAssets/SpaceShooterAssetPack_BackGrounds.png" id="1_obuy5"]
+[ext_resource type="Script" path="res://Background.gd" id="1_ryf8b"]
+[ext_resource type="FontFile" uid="uid://dbxoov6yhmxym" path="res://80s-retro-future.ttf" id="3_0rmvu"]
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_8wj62")
+
+[node name="BG" type="CanvasLayer" parent="."]
+
+[node name="Background" type="ParallaxBackground" parent="BG"]
+script = ExtResource("1_ryf8b")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="BG/Background"]
+motion_scale = Vector2(0.3, 0)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="BG/Background/ParallaxLayer"]
+texture_filter = 1
+texture_repeat = 2
+use_parent_material = true
+position = Vector2(224, 328)
+scale = Vector2(3.5, 2.55253)
+texture = ExtResource("1_obuy5")
+region_enabled = true
+region_rect = Rect2(0, 0, 128, 257)
+
+[node name="Sprite2D2" type="Sprite2D" parent="BG/Background/ParallaxLayer"]
+texture_filter = 1
+texture_repeat = 2
+use_parent_material = true
+position = Vector2(672, 328)
+scale = Vector2(3.5, 2.55253)
+texture = ExtResource("1_obuy5")
+region_enabled = true
+region_rect = Rect2(0, 0, 128, 257)
+
+[node name="Sprite2D3" type="Sprite2D" parent="BG/Background/ParallaxLayer"]
+texture_filter = 1
+texture_repeat = 2
+use_parent_material = true
+position = Vector2(1120, 328)
+scale = Vector2(3.5, 2.55253)
+texture = ExtResource("1_obuy5")
+region_enabled = true
+region_rect = Rect2(0, 0, 128, 257)
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="BG/Background"]
+position = Vector2(0, 64)
+motion_scale = Vector2(0.7, 0)
+motion_mirroring = Vector2(1232, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="BG/Background/ParallaxLayer2"]
+texture_filter = 1
+position = Vector2(165.875, 326)
+scale = Vector2(2.6376, 2.58824)
+texture = ExtResource("1_obuy5")
+region_enabled = true
+region_rect = Rect2(128, 257, 129, 255)
+
+[node name="Sprite2D2" type="Sprite2D" parent="BG/Background/ParallaxLayer2"]
+texture_filter = 1
+position = Vector2(496, 328)
+scale = Vector2(2.6376, 2.58824)
+texture = ExtResource("1_obuy5")
+region_enabled = true
+region_rect = Rect2(128, 257, 129, 255)
+
+[node name="Sprite2D3" type="Sprite2D" parent="BG/Background/ParallaxLayer2"]
+texture_filter = 1
+position = Vector2(808, 328)
+scale = Vector2(2.6376, 2.58824)
+texture = ExtResource("1_obuy5")
+region_enabled = true
+region_rect = Rect2(128, 257, 129, 255)
+
+[node name="Sprite2D4" type="Sprite2D" parent="BG/Background/ParallaxLayer2"]
+texture_filter = 1
+position = Vector2(1128, 328)
+scale = Vector2(2.6376, 2.58824)
+texture = ExtResource("1_obuy5")
+region_enabled = true
+region_rect = Rect2(128, 257, 129, 255)
+
+[node name="Title" type="Label" parent="."]
+texture_filter = 1
+offset_left = 400.0
+offset_top = 96.0
+offset_right = 796.0
+offset_bottom = 285.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.407843, 0.560784, 0.776471, 1)
+theme_override_colors/font_outline_color = Color(0.313726, 0.427451, 0.968627, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("3_0rmvu")
+theme_override_font_sizes/font_size = 160
+text = "Pong"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Play" type="Label" parent="."]
+texture_filter = 1
+offset_left = 520.0
+offset_top = 392.0
+offset_right = 704.0
+offset_bottom = 449.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.407843, 0.560784, 0.776471, 1)
+theme_override_colors/font_outline_color = Color(0.313726, 0.427451, 0.968627, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("3_0rmvu")
+theme_override_font_sizes/font_size = 46
+text = "PLAY"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Button" type="Button" parent="."]
+clip_children = 2
+texture_filter = 1
+clip_contents = true
+offset_left = 544.0
+offset_top = 448.0
+offset_right = 664.0
+offset_bottom = 560.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Button"]
+texture_filter = 1
+position = Vector2(60, 56.5)
+scale = Vector2(10, 8.53846)
+texture = ExtResource("1_nr7v3")
+region_enabled = true
+region_rect = Rect2(137, 0, 12, 13)
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
