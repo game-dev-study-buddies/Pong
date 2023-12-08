@@ -3,7 +3,8 @@
 [ext_resource type="Script" path="res://game_board/game_board.gd" id="1_gp2lk"]
 [ext_resource type="PackedScene" uid="uid://7wthsi2yhkgm" path="res://paddles/player_paddle.tscn" id="2_kfwfn"]
 [ext_resource type="PackedScene" uid="uid://b7fr4wbs862ka" path="res://paddles/computer_paddle.tscn" id="3_i50ej"]
-[ext_resource type="FontFile" uid="uid://dbxoov6yhmxym" path="res://80s-retro-future.ttf" id="4_fuxou"]
+[ext_resource type="FontFile" uid="uid://dbxoov6yhmxym" path="res://assets/80s-retro-future.ttf" id="4_fuxou"]
+[ext_resource type="Script" path="res://game_board/new_ball.gd" id="5_a65mj"]
 [ext_resource type="PackedScene" uid="uid://d1ry7nm0osmli" path="res://ball/ball.tscn" id="5_ydbf6"]
 [ext_resource type="PackedScene" uid="uid://dmch717viv75v" path="res://game_over/game_over.tscn" id="6_ageyc"]
 
@@ -47,26 +48,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 		text = str(PlayerVariables.player_two_score)
-"
-
-[sub_resource type="GDScript" id="GDScript_oyy4j"]
-script/source = "extends Node2D
-
-
-@onready var Ball = preload(\"res://Ball/ball.tscn\")
-var new_ball
-
-
-func _on_ball_tree_exited():
-	new_ball = Ball.instantiate()
-	var board_center = Vector2(576, 320)
-	new_ball.position = board_center
-	add_child(new_ball)
-	reset_ball()
-
-
-func reset_ball():
-	new_ball.tree_exited.connect(_on_ball_tree_exited)
 "
 
 [node name="GameBoard" type="Node2D"]
@@ -182,7 +163,7 @@ script = SubResource("GDScript_f45vb")
 metadata/_edit_lock_ = true
 
 [node name="NewBall" type="Node2D" parent="."]
-script = SubResource("GDScript_oyy4j")
+script = ExtResource("5_a65mj")
 
 [node name="Ball" parent="NewBall" instance=ExtResource("5_ydbf6")]
 position = Vector2(576, 320)
