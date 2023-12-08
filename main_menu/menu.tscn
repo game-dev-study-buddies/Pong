@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://5ggd5811sx3k"]
 
-[ext_resource type="Script" path="res://menu.gd" id="1_8wj62"]
-[ext_resource type="Texture2D" uid="uid://b5hb2qdh8nb3l" path="res://SpaceShooterAssets/SpaceShooterAssetPack_IU.png" id="1_nr7v3"]
-[ext_resource type="Texture2D" uid="uid://calmvvg3rsn" path="res://SpaceShooterAssets/SpaceShooterAssetPack_BackGrounds.png" id="1_obuy5"]
-[ext_resource type="Script" path="res://Background.gd" id="1_ryf8b"]
-[ext_resource type="FontFile" uid="uid://dbxoov6yhmxym" path="res://80s-retro-future.ttf" id="3_0rmvu"]
+[ext_resource type="Script" path="res://main_menu/menu.gd" id="1_8wj62"]
+[ext_resource type="Script" path="res://main_menu/Background.gd" id="1_ryf8b"]
+[ext_resource type="Texture2D" uid="uid://calmvvg3rsn" path="res://assets/SpaceShooterAssets/SpaceShooterAssetPack_BackGrounds.png" id="3_5db66"]
+[ext_resource type="FontFile" uid="uid://dbxoov6yhmxym" path="res://assets/80s-retro-future.ttf" id="4_s4778"]
+[ext_resource type="Texture2D" uid="uid://b5hb2qdh8nb3l" path="res://assets/SpaceShooterAssets/SpaceShooterAssetPack_IU.png" id="5_884pw"]
 
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_8wj62")
@@ -24,7 +24,7 @@ texture_repeat = 2
 use_parent_material = true
 position = Vector2(224, 328)
 scale = Vector2(3.5, 2.55253)
-texture = ExtResource("1_obuy5")
+texture = ExtResource("3_5db66")
 region_enabled = true
 region_rect = Rect2(0, 0, 128, 257)
 
@@ -34,7 +34,7 @@ texture_repeat = 2
 use_parent_material = true
 position = Vector2(672, 328)
 scale = Vector2(3.5, 2.55253)
-texture = ExtResource("1_obuy5")
+texture = ExtResource("3_5db66")
 region_enabled = true
 region_rect = Rect2(0, 0, 128, 257)
 
@@ -44,7 +44,7 @@ texture_repeat = 2
 use_parent_material = true
 position = Vector2(1120, 328)
 scale = Vector2(3.5, 2.55253)
-texture = ExtResource("1_obuy5")
+texture = ExtResource("3_5db66")
 region_enabled = true
 region_rect = Rect2(0, 0, 128, 257)
 
@@ -57,7 +57,7 @@ motion_mirroring = Vector2(1232, 0)
 texture_filter = 1
 position = Vector2(165.875, 326)
 scale = Vector2(2.6376, 2.58824)
-texture = ExtResource("1_obuy5")
+texture = ExtResource("3_5db66")
 region_enabled = true
 region_rect = Rect2(128, 257, 129, 255)
 
@@ -65,7 +65,7 @@ region_rect = Rect2(128, 257, 129, 255)
 texture_filter = 1
 position = Vector2(496, 328)
 scale = Vector2(2.6376, 2.58824)
-texture = ExtResource("1_obuy5")
+texture = ExtResource("3_5db66")
 region_enabled = true
 region_rect = Rect2(128, 257, 129, 255)
 
@@ -73,7 +73,7 @@ region_rect = Rect2(128, 257, 129, 255)
 texture_filter = 1
 position = Vector2(808, 328)
 scale = Vector2(2.6376, 2.58824)
-texture = ExtResource("1_obuy5")
+texture = ExtResource("3_5db66")
 region_enabled = true
 region_rect = Rect2(128, 257, 129, 255)
 
@@ -81,7 +81,7 @@ region_rect = Rect2(128, 257, 129, 255)
 texture_filter = 1
 position = Vector2(1128, 328)
 scale = Vector2(2.6376, 2.58824)
-texture = ExtResource("1_obuy5")
+texture = ExtResource("3_5db66")
 region_enabled = true
 region_rect = Rect2(128, 257, 129, 255)
 
@@ -98,7 +98,7 @@ theme_override_constants/shadow_offset_x = 0
 theme_override_constants/shadow_offset_y = 3
 theme_override_constants/outline_size = 3
 theme_override_constants/shadow_outline_size = 3
-theme_override_fonts/font = ExtResource("3_0rmvu")
+theme_override_fonts/font = ExtResource("4_s4778")
 theme_override_font_sizes/font_size = 160
 text = "Pong"
 horizontal_alignment = 1
@@ -118,7 +118,7 @@ theme_override_constants/shadow_offset_x = 0
 theme_override_constants/shadow_offset_y = 3
 theme_override_constants/outline_size = 3
 theme_override_constants/shadow_outline_size = 3
-theme_override_fonts/font = ExtResource("3_0rmvu")
+theme_override_fonts/font = ExtResource("4_s4778")
 theme_override_font_sizes/font_size = 46
 text = "PLAY"
 horizontal_alignment = 1
@@ -138,7 +138,7 @@ offset_bottom = 560.0
 texture_filter = 1
 position = Vector2(60, 56.5)
 scale = Vector2(10, 8.53846)
-texture = ExtResource("1_nr7v3")
+texture = ExtResource("5_884pw")
 region_enabled = true
 region_rect = Rect2(137, 0, 12, 13)
 

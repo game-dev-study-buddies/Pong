@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dmch717viv75v"]
 
-[ext_resource type="Script" path="res://game_over.gd" id="1_8fgsc"]
+[ext_resource type="Script" path="res://game_over/game_over.gd" id="1_8fgsc"]
 
 [node name="GameOver" type="Control"]
 process_mode = 2

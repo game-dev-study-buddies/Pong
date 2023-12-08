@@ -1,0 +1,87 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1ry7nm0osmli"]
+
+[ext_resource type="Texture2D" uid="uid://b5hb2qdh8nb3l" path="res://assets/SpaceShooterAssets/SpaceShooterAssetPack_IU.png" id="1_omhlv"]
+
+[sub_resource type="GDScript" id="GDScript_q0gtg"]
+script/source = "extends RigidBody2D
+
+const LEFT = -1
+const RIGHT = 1
+const SPEED = 300
+const SPEED_MULTIPLIER = 1.15
+
+var velocity
+static var ball_direction_h
+
+func _ready():
+	spawn_ball()
+
+
+func _physics_process(delta):
+	var collision_info = move_and_collide(velocity * delta)
+	
+	if collision_info:
+		velocity = velocity.bounce(collision_info.get_normal())
+
+		var collider = collision_info.get_collider().name
+
+		if collider == \"PlayerOneWall\":
+			PlayerVariables.player_two_score += 1
+			if PlayerVariables.current_winner:
+				PlayerVariables.last_winner = PlayerVariables.current_winner
+			PlayerVariables.current_winner = 2
+			queue_free()
+		elif collider == \"PlayerTwoWall\":
+			PlayerVariables.player_one_score += 1
+			if PlayerVariables.current_winner:
+				PlayerVariables.last_winner = PlayerVariables.current_winner
+			PlayerVariables.current_winner = 1
+			queue_free()
+		elif collider != \"WorldBoundary\":
+			velocity *= SPEED_MULTIPLIER
+
+
+func spawn_ball():
+	velocity = get_ball_direction() * SPEED
+
+
+func get_ball_direction():
+	if not PlayerVariables.current_winner:
+		ball_direction_h = RIGHT if randf() >= 0.5 else LEFT
+	elif PlayerVariables.current_winner != PlayerVariables.last_winner:
+		match PlayerVariables.current_winner:
+			1:
+				ball_direction_h = LEFT
+			2:
+				ball_direction_h = RIGHT
+	else:
+		match ball_direction_h:
+			LEFT:
+				ball_direction_h = RIGHT
+			RIGHT:
+				ball_direction_h = LEFT
+
+	var ball_direction_v = randf_range(-1,1)
+
+	return Vector2(ball_direction_h, ball_direction_v).normalized()
+
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ov4e"]
+size = Vector2(16.75, 16.75)
+
+[node name="Ball" type="RigidBody2D"]
+gravity_scale = 0.0
+script = SubResource("GDScript_q0gtg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-2.38419e-07, 2.38419e-07)
+scale = Vector2(2, 2)
+texture = ExtResource("1_omhlv")
+region_enabled = true
+region_rect = Rect2(56, 0, 8, 8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.0340261, -0.0516191)
+shape = SubResource("RectangleShape2D_2ov4e")

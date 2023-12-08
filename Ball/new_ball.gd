@@ -1,7 +1,7 @@
 extends Node2D
 
 
-@onready var Ball = preload("res://ball.tscn")
+@onready var Ball = preload("res://ball/ball.gd")
 var new_ball
 
 
