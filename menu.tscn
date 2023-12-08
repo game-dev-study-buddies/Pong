@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://oc273mrd2rnv"]
+[gd_scene load_steps=6 format=3 uid="uid://5ggd5811sx3k"]
 
 [ext_resource type="Script" path="res://menu.gd" id="1_8wj62"]
 [ext_resource type="Texture2D" uid="uid://b5hb2qdh8nb3l" path="res://SpaceShooterAssets/SpaceShooterAssetPack_IU.png" id="1_nr7v3"]

@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://NewBall.gd" id="4_8bvax"]
 [ext_resource type="PackedScene" uid="uid://d1ry7nm0osmli" path="res://ball.tscn" id="4_a5ht6"]
 [ext_resource type="PackedScene" uid="uid://b7fr4wbs862ka" path="res://computer_paddle.tscn" id="4_uvkk3"]
-[ext_resource type="PackedScene" uid="uid://bv83ba21jnc5q" path="res://game_over.tscn" id="5_4olre"]
+[ext_resource type="PackedScene" path="res://game_over.tscn" id="5_4olre"]
 [ext_resource type="FontFile" uid="uid://dbxoov6yhmxym" path="res://80s-retro-future.ttf" id="6_8kwgy"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_285fp"]
@@ -169,8 +169,6 @@ script = ExtResource("4_8bvax")
 position = Vector2(576, 320)
 
 [node name="GameOver" parent="." instance=ExtResource("5_4olre")]
-process_mode = 2
-
 
 [connection signal="body_entered" from="ComputerBallDetection" to="ComputerPaddle" method="_on_computer_ball_detection_body_entered"]
 [connection signal="tree_exited" from="NewBall/Ball" to="NewBall" method="_on_ball_tree_exited"]
