@@ -171,5 +171,6 @@ position = Vector2(576, 320)
 [node name="GameOver" parent="." instance=ExtResource("5_4olre")]
 process_mode = 2
 
+
 [connection signal="body_entered" from="ComputerBallDetection" to="ComputerPaddle" method="_on_computer_ball_detection_body_entered"]
 [connection signal="tree_exited" from="NewBall/Ball" to="NewBall" method="_on_ball_tree_exited"]
